@@ -1,0 +1,21 @@
+module Validacao
+  def self.included(base)
+  end
+
+  module ClassMethods
+    def validar_por_presenca(*atributos)
+      atributos.each do |atributo|
+        define_method("#{atributo}_)validar") do
+          valor = intance_variable_get("@#{atributo}")
+          raise "O atributo #{atributo} não pode ser vazio" if valor.nil? || valor.empty?
+        end
+      end
+    end
+  end
+
+  module InstanceMethods
+    def validar!
+      self.methods.grep(/_validar/).each { |method| self.send(method) }
+    end
+  end
+end
