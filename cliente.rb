@@ -10,7 +10,7 @@ end
 cli = Cliente.new
 puts cli.methods - Class.methods
 puts "-----------"
-puts cliente.methods - CLass.methods
+puts Cliente.methods - Class.methods
 
 cli.nome = "Geovanny"
 cli.email = "geovanny@teste.com"

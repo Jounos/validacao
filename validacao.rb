@@ -1,5 +1,7 @@
 module Validacao
   def self.included(base)
+    base.extend(ClassMethods)
+    base.include(InstanceMethods)
   end
 
   module ClassMethods
